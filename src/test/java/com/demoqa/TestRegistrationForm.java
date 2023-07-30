@@ -6,8 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -46,7 +44,8 @@ public class TestRegistrationForm {
         $("#hobbiesWrapper").$(byText("Reading")).click();
 
         //upload image
-        $("#uploadPicture").uploadFile(new File("src/test/java/resources/cat.jpg"));
+        //$("#uploadPicture").uploadFile(new File("src/test/resources/cat.jpg"));
+        $("#uploadPicture").uploadFromClasspath("cat.jpg");
 
         $("#currentAddress").setValue("Elm street, 10").pressEnter();
         $("#stateCity-wrapper").$(byText("Select State")).scrollIntoView(true).click();
