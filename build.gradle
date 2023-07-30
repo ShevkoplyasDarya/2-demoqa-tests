@@ -6,6 +6,9 @@ repositories {
     mavenCentral()
 }
 
+group 'guru.qa'
+version '1.0'
+
 dependencies {
     testImplementation (
             "com.codeborne:selenide:6.16.0",
