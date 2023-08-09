@@ -38,20 +38,20 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setFirstName(String value) {
-        firstNameInput.setValue(value);
+    public RegistrationPage setFirstName(String firstName) {
+        firstNameInput.setValue(firstName);
 
         return this;
     }
 
-    public RegistrationPage setLastName(String value) {
-        lastNameInput.setValue(value);
+    public RegistrationPage setLastName(String lastName) {
+        lastNameInput.setValue(lastName);
 
         return this;
     }
 
-    public RegistrationPage setEmail(String value) {
-        emailInput.setValue(value);
+    public RegistrationPage setEmail(String userEmail) {
+        emailInput.setValue(userEmail);
 
         return this;
     }
@@ -62,46 +62,46 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setNumber(String value) {
-        userNumberInput.setValue(value);
+    public RegistrationPage setNumber(String phoneNumber) {
+        userNumberInput.setValue(phoneNumber);
 
         return this;
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(int day, String month, String year) {
         birthDateInput.click();
         calendar.setDate(day, month, year);
 
         return this;
     }
 
-    public RegistrationPage setSubject(String value) {
-        subjectInput.setValue(value).pressEnter();
+    public RegistrationPage setSubject(String subject) {
+        subjectInput.setValue(subject).pressEnter();
 
         return this;
     }
 
-    public RegistrationPage setSHobby(String value) {
-        hobbiesWrapper.$(byText(value)).click();
+    public RegistrationPage setSHobby(String hobby) {
+        hobbiesWrapper.$(byText(hobby)).click();
 
         return this;
     }
 
-    public RegistrationPage uploadImage(String value) {
-        pictureInput.uploadFromClasspath(value);
+    public RegistrationPage uploadImage(String image) {
+        pictureInput.uploadFromClasspath(image);
 
         return this;
     }
 
-    public RegistrationPage setAddress(String value) {
-        addressInput.setValue(value).pressEnter();
+    public RegistrationPage setAddress(String currentAddress) {
+        addressInput.setValue(currentAddress).pressEnter();
 
         return this;
     }
 
-    public RegistrationPage setState(String value) {
+    public RegistrationPage setState(String state) {
         stateDropdown.scrollIntoView(true).click();
-        stateNameSelector.$(byText(value)).click();
+        stateNameSelector.$(byText(state)).click();
 
         return this;
     }
@@ -119,9 +119,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage checkResults(String name, String email, String gender, String number, String birthDate,
-                                         String subject, String hobby, String imageName, String address, String stateCity) {
-        result.checkResults(name, email, gender, number, birthDate, subject, hobby, imageName, address, stateCity);
+    public RegistrationPage checkResults(String firstName, String lastName, String email, String gender,
+                                         String number, int day, String month, String year,  String subject, String hobby,
+                                         String imageName, String address, String state, String city)
+    {
+        result.checkResults(firstName, lastName, email, gender,
+                number, day, month, year,  subject, hobby,
+                imageName, address, state, city);
 
         return this;
     }
